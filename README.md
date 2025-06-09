@@ -32,6 +32,25 @@ This repository provides a reproducible **LangGraph**/**LangChain**‑based mult
 
 ## Overview
 
+```mermaid
+graph TD
+    A[START] --> B[🏦 Bank Management]
+    B --> C[🏛️ Regulators]
+    C --> D[📋 Auditors]
+    D --> E[📊 Analysts]
+    E --> F[🔗 Coordinator]
+    F --> G[⚡ Synthesis]
+    G --> H[END]
+    subgraph Tools
+        T1[analyze_cecl_transparency]
+        T2[assess_stakeholder_tensions]
+        T3[institutional_theory_analysis]
+    end
+    T1 -.-> B
+    T2 -.-> C
+    T3 -.-> D
+```
+
 ```python
 # Agent configuration definitions - centralized configuration to reduce repetition
 AGENT_CONFIGS = {
