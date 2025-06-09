@@ -61,12 +61,12 @@ graph TD
 
 ## Dependencies
 
-| Package                  | Suggested Version | Purpose                                |
-| ------------------------ | ----------------- | -------------------------------------- |
-| Python                   | ≥ 3.10            | Interpreter                            |
-| `langgraph`              | latest            | State‑graph orchestration              |
-| `langchain‑anthropic`    | latest            | Claude‑3 API wrapper                   |
-| `python‑dotenv`          | ≥ 1.0             | Environment variable loading           |
+| Package                      | Suggested Version | Purpose                                |
+| ---------------------------- | ------------------ | -------------------------------------- |
+| Python                       | ≥ 3.10           | Interpreter                            |
+| `langgraph`                | latest             | State‑graph orchestration             |
+| `langchain‑anthropic`     | latest             | Claude‑3 API wrapper                  |
+| `python‑dotenv`           | ≥ 1.0            | Environment variable loading           |
 | `asyncio`, `dataclasses` | built‑in          | Asynchronous support & data structures |
 
 > **Note:** Set `ANTHROPIC_API_KEY` in your `.env` file or as an environment variable before running the simulation.
@@ -77,7 +77,7 @@ graph TD
 
 ```bash
 # 1. Clone the repository
-$ git clone https://github.com/yourname/cecl-multiagent.git && cd cecl-multiagent
+$ git clone https://github.com/yli397/CECLAgents.git && cd CECLAgents
 
 # 2. Create a virtual environment and install dependencies
 $ python -m venv .venv && source .venv/bin/activate
@@ -98,13 +98,13 @@ The script prints research questions, the methodological framework, and key insi
 
 ### Agent Roles
 
-| Agent Class               | Key Responsibilities                                                                          |
-| ------------------------- | --------------------------------------------------------------------------------------------- |
+| Agent Class                     | Key Responsibilities                                                                          |
+| ------------------------------- | --------------------------------------------------------------------------------------------- |
 | **BankManagementAgent**   | Formulates CECL disclosure strategies; balances regulatory pressure and competitive advantage |
 | **RegulatoryAgent**       | Evaluates compliance and applies transparency requirements                                    |
 | **AuditorAgent**          | Assesses model reliability, audit trails, and validation evidence                             |
 | **AnalystAgent**          | Adjusts market confidence and earnings forecasts based on disclosure quality                  |
-| **SimulationCoordinator** | Orchestrates multi‑round interactions and synthesises findings                                |
+| **SimulationCoordinator** | Orchestrates multi‑round interactions and synthesises findings                               |
 
 ### Analysis Tools
 
