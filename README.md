@@ -32,23 +32,56 @@ This repository provides a reproducible **LangGraph**/**LangChain**‑based mult
 
 ## Overview
 
-```mermaid
-graph TD
-    A[START] --> B[🏦 Bank Management]
-    B --> C[🏛️ Regulators]
-    C --> D[📋 Auditors]
-    D --> E[📊 Analysts]
-    E --> F[🔗 Coordinator]
-    F --> G[⚡ Synthesis]
-    G --> H[END]
-    subgraph Tools
-        T1[analyze_cecl_transparency]
-        T2[assess_stakeholder_tensions]
-        T3[institutional_theory_analysis]
-    end
-    T1 -.-> B
-    T2 -.-> C
-    T3 -.-> D
+```python
+# Agent configuration definitions - centralized configuration to reduce repetition
+AGENT_CONFIGS = {
+    "bank": AgentConfig(
+        name="BankAgent",
+        role="Bank Management",
+        system_prompt="""You are a bank management agent responsible for CECL estimation and disclosure policies.
+        Objectives: 1. Minimize regulatory scrutiny 2. Maintain competitive advantage 3. Balance transparency with proprietary risk 4. Respond to stakeholder feedback
+        Analyze current transparency strategies and stakeholder responses.""",
+        objectives=["Regulatory Compliance", "Competitive Advantage", "Risk Balance", "Stakeholder Management"],
+        state_key="bank_analysis"
+    ),
+    "regulatory": AgentConfig(
+        name="RegulatoryAgent",
+        role="Regulatory Agency",
+        system_prompt="""You are a regulatory agency agent monitoring compliance and applying transparency pressure.
+        Objectives: 1. Ensure adequate model validation 2. Assess systemic risk 3. Provide improvement guidance 4. Balance regulatory burden
+        Evaluate bank transparency levels and provide regulatory feedback.""",
+        objectives=["Model Validation", "Systemic Risk", "Improvement Guidance", "Regulatory Balance"],
+        state_key="regulatory_analysis"
+    ),
+    "auditor": AgentConfig(
+        name="AuditorAgent",
+        role="Auditor",
+        system_prompt="""You are an auditor agent evaluating model reliability and providing validation feedback.
+        Objectives: 1. Assess audit trail completeness 2. Validate estimation methods 3. Evaluate internal control adequacy 4. Provide improvement recommendations
+        Analyze bank disclosures and provide audit perspective.""",
+        objectives=["Audit Trail", "Method Validation", "Internal Control Assessment", "Improvement Recommendations"],
+        state_key="audit_analysis"
+    ),
+    "analyst": AgentConfig(
+        name="AnalystAgent",
+        role="Financial Analyst",
+        system_prompt="""You are a financial analyst agent adjusting market confidence based on transparency levels.
+        Objectives: 1. Assess earnings predictability 2. Evaluate model comparability 3. Adjust prediction confidence 4. Provide market feedback
+        Analyze impact of bank disclosures on analysis and forecasting.""",
+        objectives=["Earnings Prediction", "Model Comparability", "Prediction Confidence", "Market Feedback"],
+        state_key="analyst_analysis"
+    ),
+    "coordinator": AgentConfig(
+        name="CoordinatorAgent",
+        role="Simulation Coordinator",
+        system_prompt="""You are a simulation coordinator, coordinating multi-agent interactions and analyzing results.
+        Objectives: 1. Design interaction protocols 2. Monitor transparency evolution 3. Analyze convergence dynamics 4. Synthesize research findings
+        Design simulation framework based on all agent analyses.""",
+        objectives=["Interaction Design", "Evolution Monitoring", "Dynamic Analysis", "Result Synthesis"],
+        state_key="coordination_analysis"
+    )
+}
+
 ```
 
 **Research Objectives**
